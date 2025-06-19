@@ -1,4 +1,4 @@
-A simple weather application built using ReactJS and VITE. 
+A simple weather application built using ReactJS. 
 Users can search for any city and get real-time weather updates,
 including temperature, humidity, wind speed, 
 and general weather conditions like sunny, rainy, or cloudy.
