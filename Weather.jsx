@@ -12,24 +12,25 @@ const Weather = () => {
   const [weatherData,SetweatherData]=useState(false);
   const [city, setCity] = useState("London");
 
-  const search=async (cityName) => {
-    try {
-      const url=`https://api.weatherapi.com/v1/current.json?key=4ddba02ab1e34012a7f70446251806&q=${cityName}`
-      const response= await fetch(url);
-      const data=await response.json();
-      console.log(data);
-      SetweatherData({
-        humidity:data.current.humidity,
-        windSpeed:data.current.wind_kph,
-        temperature:Math.floor(data.current.temp_c),
-        location:data.location.name,
-        icon: data.current.condition.icon,
-        description: data.current.condition.text
-      });
-    } catch (error) {
-      console.error("API Fetch Error:", error);
-    }
+  const search = async (cityName) => {
+  try {
+    const url = `https://api.weatherapi.com/v1/current.json?key=4ddba02ab1e34012a7f70446251806&q=${cityName}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+    SetweatherData({
+      humidity: data.current.humidity,
+      windSpeed: data.current.wind_kph,
+      temperature: Math.floor(data.current.temp_c),
+      location: data.location.name,
+      icon: data.current.condition.icon,
+      description: data.current.condition.text
+    });
+  } catch (error) {
+    console.error("API fetch error:", error);
   }
+}
+
   useEffect(()=>{
     search(city)
   },[])
